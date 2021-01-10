@@ -26,3 +26,4 @@ Data visualisations
   
 ## Resources  
 - https://www.reddit.com/r/algotrading/comments/kubugd/is_it_realistic_for_a_retail_trader_find/
+- https://www.reddit.com/r/algotrading/comments/kubbsj/those_who_have_deployed_actual_algos_either/
