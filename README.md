@@ -5,3 +5,4 @@ Strategy Development
 Engineering  
 Data Acquisition  
 Backtesting  
+Hardware Development?
