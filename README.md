@@ -18,3 +18,11 @@ Data visualisations
 - Create an automated portfolio management system that optimizes investment allocation  
   
 - Create a fully automated stock trading algorithm
+  
+## TODO
+- Create a Google drive  
+- Project roadmap  
+- ...  
+  
+## Resources  
+- https://www.reddit.com/r/algotrading/comments/kubugd/is_it_realistic_for_a_retail_trader_find/
