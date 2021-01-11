@@ -1,4 +1,4 @@
-# Madoff-International-LLC  
+# Madoff International LLC  
   
 ## Areas of focus:
 Strategy Development  
