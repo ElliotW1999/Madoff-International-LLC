@@ -12,7 +12,7 @@ Hardware Development?
 Features:  
 Backend model that calculates predicted price movement of stocks   
 Descending ranked list of stocks by highest magnitude of price change  
-Detailed view on each stock (how it determines the price change prediction)
+Detailed view on each stock (how it determines the price change prediction)  
 Data visualisations
   
 - Create an automated portfolio management system that optimizes investment allocation  
