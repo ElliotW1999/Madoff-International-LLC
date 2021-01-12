@@ -30,3 +30,4 @@ Data visualisations
 - https://www.reddit.com/r/algotrading/comments/kuo2ef/live_options_market_data/  
 - https://www.tradientblog.com/2020/03/understanding-the-limit-order-book/
 - https://github.com/mhallsmoore/qstrader  
+- https://www.quantconnect.com/
