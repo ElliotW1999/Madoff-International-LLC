@@ -25,13 +25,13 @@ Data visualisations
 - ...  
   
 ## Resources  
-### Strategy  
+#### Strategy  
 - https://www.reddit.com/r/algotrading/comments/kubugd/is_it_realistic_for_a_retail_trader_find/
 - https://www.reddit.com/r/algotrading/comments/kubbsj/those_who_have_deployed_actual_algos_either/  
-### Data Acquisition
+#### Data Acquisition
 - https://www.reddit.com/r/algotrading/comments/kuo2ef/live_options_market_data/  
 - https://www.tradientblog.com/2020/03/understanding-the-limit-order-book/  
-### Backtesting
+#### Backtesting
 - https://github.com/mhallsmoore/qstrader  
 - https://www.quantconnect.com/
 - https://www.backtrader.com/
