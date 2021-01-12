@@ -31,3 +31,4 @@ Data visualisations
 - https://www.tradientblog.com/2020/03/understanding-the-limit-order-book/
 - https://github.com/mhallsmoore/qstrader  
 - https://www.quantconnect.com/
+- https://www.backtrader.com/
