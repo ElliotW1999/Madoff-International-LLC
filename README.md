@@ -22,7 +22,7 @@ Data visualisations
 ## TODO
 - Create a Google drive  
 - Project roadmap  
-- ...  
+- Research/ create a robust backtesting platform
   
 ## Resources  
 #### Strategy  
