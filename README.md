@@ -36,3 +36,5 @@ Data visualisations
 - https://www.quantconnect.com/
 - https://www.backtrader.com/
 - https://www.portfoliovisualizer.com/
+#### Paper Trading
+- https://github.com/alpacahq/alpaca-backtrader-api
