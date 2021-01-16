@@ -21,7 +21,7 @@ Data visualisations
   
 ## TODO
 - Create a Google drive  
-- Project roadmap  
+- Project roadmap ->   
 - Research/ create a robust backtesting platform
   
 ## Resources  
@@ -40,3 +40,7 @@ Data visualisations
 - https://github.com/alpacahq/alpaca-backtrader-api  
 #### Markets
 - https://www.tradientblog.com/2020/03/understanding-the-limit-order-book/  
+
+
+## Google Drive  
+https://drive.google.com/drive/u/1/folders/0AEUK-MmQvv-FUk9PVA
