@@ -1,4 +1,9 @@
-# Madoff International LLC  
+<p align="center">
+  <h1> 
+    Madoff International LLC
+  </h1>
+  <img src="https://img0.oastatic.com/img2/1052809/1080x410r/aussicht-vom-gipfel.jpg" >
+</p>
   
 ## Areas of focus:
 Strategy Development  
