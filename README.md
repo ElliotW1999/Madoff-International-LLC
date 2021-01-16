@@ -30,7 +30,6 @@ Data visualisations
 - https://www.reddit.com/r/algotrading/comments/kubbsj/those_who_have_deployed_actual_algos_either/  
 #### Data Acquisition
 - https://www.reddit.com/r/algotrading/comments/kuo2ef/live_options_market_data/  
-- https://www.tradientblog.com/2020/03/understanding-the-limit-order-book/  
 - Quandl, Oanda
 #### Backtesting
 - https://github.com/mhallsmoore/qstrader  
@@ -38,4 +37,6 @@ Data visualisations
 - https://www.backtrader.com/
 - https://www.portfoliovisualizer.com/
 #### Paper Trading
-- https://github.com/alpacahq/alpaca-backtrader-api
+- https://github.com/alpacahq/alpaca-backtrader-api  
+#### Markets
+- https://www.tradientblog.com/2020/03/understanding-the-limit-order-book/  
