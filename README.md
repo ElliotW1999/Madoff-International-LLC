@@ -26,8 +26,9 @@ Data visualisations
   
 ## TODO
 - Create a Google drive  
-- Project roadmap ->   
-- Research/ create a robust backtesting platform
+- Project roadmap
+- Research/ create a robust backtesting platform  
+- Full strategy pipeline (ideation to validation)
   
 ## Resources  
 #### Strategy  
