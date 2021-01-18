@@ -41,6 +41,7 @@ Data visualisations
 - https://www.quantconnect.com/
 - https://www.backtrader.com/
 - https://www.portfoliovisualizer.com/
+- MetaTrader 5 (C), Quantstrat (R)
 #### Paper Trading
 - https://github.com/alpacahq/alpaca-backtrader-api  
 #### Markets
