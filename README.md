@@ -35,7 +35,8 @@ Data visualisations
 - https://www.reddit.com/r/algotrading/comments/kubbsj/those_who_have_deployed_actual_algos_either/  
 #### Data Acquisition
 - https://www.reddit.com/r/algotrading/comments/kuo2ef/live_options_market_data/  
-- Quandl, Oanda
+- Quandl, Oanda  
+- https://tickstory.com/  
 #### Backtesting
 - https://github.com/mhallsmoore/qstrader  
 - https://www.quantconnect.com/
