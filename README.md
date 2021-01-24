@@ -22,7 +22,9 @@ Data visualisations
   
 - Create an automated portfolio management system that optimizes investment allocation  
   
-- Create a fully automated stock trading algorithm
+- Create a fully automated stock trading algorithm  
+  
+- Develop a custom backtesting system
   
 ## TODO
 - Project roadmap
