@@ -57,5 +57,6 @@ Model performance details
 - Halls-Moore, Michael. Successful Algorithmic Trading.  
 - Halls-Moore, Michael. Advanced Algorithmic Trading.  
 - Carver, Robert. Systematic Trading.  
+- Natenberg, Sheldon. Option Volatility and Pricing.  
 ## Google Drive  
 https://drive.google.com/drive/u/1/folders/0AEUK-MmQvv-FUk9PVA
