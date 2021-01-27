@@ -58,5 +58,6 @@ Model performance details
 - Halls-Moore, Michael. Advanced Algorithmic Trading.  
 - Carver, Robert. Systematic Trading.  
 - Natenberg, Sheldon. Option Volatility and Pricing.  
+- Aronson, David. Evidence Based Technical Analysis.  
 ## Google Drive  
 https://drive.google.com/drive/u/1/folders/0AEUK-MmQvv-FUk9PVA
