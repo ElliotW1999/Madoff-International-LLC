@@ -50,9 +50,12 @@ Model performance details
 - MetaTrader 5 (C), Quantstrat (R)
 #### Paper Trading
 - https://github.com/alpacahq/alpaca-backtrader-api  
+- TD Ameritrade?  
 #### Markets
 - https://www.tradientblog.com/2020/03/understanding-the-limit-order-book/  
-
-
+#### Textbooks  
+- Halls-Moore, Michael. Successful Algorithmic Trading.  
+- Halls-Moore, Michael. Advanced Algorithmic Trading.  
+- Carver, Robert. Systematic Trading.  
 ## Google Drive  
 https://drive.google.com/drive/u/1/folders/0AEUK-MmQvv-FUk9PVA
