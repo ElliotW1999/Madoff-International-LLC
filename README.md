@@ -53,6 +53,8 @@ Model performance details
 - TD Ameritrade?  
 #### Markets
 - https://www.tradientblog.com/2020/03/understanding-the-limit-order-book/  
+- https://squeezemetrics.com/download/The_Implied_Order_Book.pdf  
+- CBOE Beginners Options course
 #### Textbooks  
 - Halls-Moore, Michael. Successful Algorithmic Trading.  
 - Halls-Moore, Michael. Advanced Algorithmic Trading.  
