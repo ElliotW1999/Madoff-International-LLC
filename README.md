@@ -42,6 +42,7 @@ Model performance details
 - https://www.reddit.com/r/algotrading/comments/kuo2ef/live_options_market_data/  
 - Quandl, Oanda  
 - https://tickstory.com/  
+- ttps://swaggystocks.com/dashboard/wallstreetbets/ticker-sentiment  
 #### Backtesting
 - https://github.com/mhallsmoore/qstrader  
 - https://www.quantconnect.com/
