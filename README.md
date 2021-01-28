@@ -37,6 +37,7 @@ Model performance details
 #### Strategy  
 - https://www.reddit.com/r/algotrading/comments/kubugd/is_it_realistic_for_a_retail_trader_find/
 - https://www.reddit.com/r/algotrading/comments/kubbsj/those_who_have_deployed_actual_algos_either/  
+- https://quant.stackexchange.com/questions/3456/how-to-build-a-mean-reverting-basket  
 #### Data Acquisition  
 - http://www.lazyfa.com/
 - https://www.reddit.com/r/algotrading/comments/kuo2ef/live_options_market_data/  
