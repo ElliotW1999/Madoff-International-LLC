@@ -30,7 +30,8 @@ Model performance details
 ## TODO
 - Project roadmap
 - Research/ create a robust backtesting platform  
-- Full strategy pipeline (ideation to validation)
+- Full strategy backtesting pipeline (ideation to evaluation)  
+- LazyFA web scraper
   
 ## Resources  
 - https://github.com/EliteQuant/EliteQuant
