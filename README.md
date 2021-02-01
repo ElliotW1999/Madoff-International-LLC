@@ -31,6 +31,7 @@ Model performance details
 - Project roadmap
 - Research/ create a robust backtesting platform  
 - Full strategy backtesting pipeline (ideation to evaluation)  
+- Test BTC/ETH Pairs trader with backtester
 - LazyFA web scraper
   
 ## Resources  
