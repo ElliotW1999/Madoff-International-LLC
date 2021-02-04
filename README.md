@@ -51,7 +51,8 @@ Model performance details
 - https://www.quantconnect.com/
 - https://www.backtrader.com/
 - https://www.portfoliovisualizer.com/
-- MetaTrader 5 (C), Quantstrat (R)
+- MetaTrader 5 (C), Quantstrat (R)  
+- https://blog.darwinex.com/zeromq-interface-python-r-metatrader4/
 #### Paper Trading
 - https://github.com/alpacahq/alpaca-backtrader-api  
 - TD Ameritrade?  
