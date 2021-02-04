@@ -37,6 +37,7 @@ Model performance details
 ## Resources  
 - https://github.com/EliteQuant/EliteQuant
 #### Strategy  
+- https://miltonfmr.com/how-to-develop-test-and-optimize-a-trading-strategy-complete-guide/
 - https://www.reddit.com/r/algotrading/comments/kubugd/is_it_realistic_for_a_retail_trader_find/
 - https://www.reddit.com/r/algotrading/comments/kubbsj/those_who_have_deployed_actual_algos_either/  
 - https://quant.stackexchange.com/questions/3456/how-to-build-a-mean-reverting-basket  
