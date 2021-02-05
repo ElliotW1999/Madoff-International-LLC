@@ -47,6 +47,7 @@ Model performance details
 - Quandl, Oanda  
 - https://tickstory.com/  
 - ttps://swaggystocks.com/dashboard/wallstreetbets/ticker-sentiment  
+- https://whalewisdom.com/statistics/trends
 #### Backtesting
 - https://github.com/mhallsmoore/qstrader  
 - https://www.quantconnect.com/
