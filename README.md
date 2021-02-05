@@ -10,7 +10,6 @@ Strategy Development
 Engineering  
 Data Acquisition  
 Backtesting  
-Hardware Development?
 
 ## Goals
 - Create an application that notifies the user of promising stocks to investigate for discretionary trading (semi-automation)  
