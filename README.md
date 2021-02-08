@@ -41,7 +41,8 @@ Model performance details
 - https://www.reddit.com/r/algotrading/comments/kubbsj/those_who_have_deployed_actual_algos_either/  
 - https://quant.stackexchange.com/questions/3456/how-to-build-a-mean-reverting-basket  
 #### Data Acquisition  
-- http://www.lazyfa.com/
+- http://www.lazyfa.com/  
+- https://www.reddit.com/r/algotrading/comments/lelkme/stock_tracker_and_analysis_spreadsheet/  
 - https://www.reddit.com/r/algotrading/comments/kuo2ef/live_options_market_data/  
 - Quandl, Oanda  
 - https://tickstory.com/  
