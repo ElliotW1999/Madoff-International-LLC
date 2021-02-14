@@ -29,7 +29,7 @@ Model performance details
 ## TODO
 - Project roadmap
 - Research/ create a robust backtesting platform  
-- Full strategy backtesting pipeline (ideation to evaluation)  
+- Full strategy backtesting pipeline (ideation to evaluation, inc. monte carlo simulation)  
 - Test BTC/ETH Pairs trader with backtrader
 - LazyFA web scraper
   
@@ -50,12 +50,12 @@ Model performance details
 - https://swaggystocks.com/dashboard/wallstreetbets/ticker-sentiment  
 - https://whalewisdom.com/statistics/trends
 #### Backtesting
-- https://github.com/mhallsmoore/qstrader  
 - https://www.quantconnect.com/
 - https://www.backtrader.com/
-- https://www.portfoliovisualizer.com/
-- MetaTrader 5 (C), Quantstrat (R)  
-- https://blog.darwinex.com/zeromq-interface-python-r-metatrader4/
+- MetaTrader 5 (C)  
+- https://github.com/mhallsmoore/qstrader ? 
+- https://www.portfoliovisualizer.com/ ?  
+- Quantstrat (R) ?
 #### Paper Trading
 - https://github.com/alpacahq/alpaca-backtrader-api  
 - TD Ameritrade?  
@@ -69,6 +69,7 @@ Model performance details
 - Carver, Robert. Systematic Trading.  
 - Natenberg, Sheldon. Option Volatility and Pricing.  
 - Aronson, David. Evidence Based Technical Analysis.  
-- Quantitative Equity Investing?
+- Quantitative Equity Investing?  
+- Trading Systems + Methods?  
 ## Google Drive  
 https://drive.google.com/drive/u/1/folders/0AEUK-MmQvv-FUk9PVA
