@@ -1,12 +1,56 @@
 import datetime
-import pandas_datareader as web
+from yahoofinancials import YahooFinancials  # use for fundamental data
+import yfinance as yf                        # use for price data
+import pandas as pd
+import requests
+#import pyqtgraph #switch to pyqtgraph eventually...
+import matplotlib.pyplot as plt
 
-if __name__ == "__main__":
-    spy = web.DataReader(
-        "SPY", "yahoo",
-        datetime.datetime(2007,1,1),
-        datetime.datetime(2021,1,1)
-    )
+ticker = "SPY AAPL MSFT"
+data = yf.download(  # or pdr.get_data_yahoo(...
+    # tickers list or string as well
+    tickers = 'TSLA',
 
-print(spy.tail())
-print(spy.size)
+    # use "period" instead of start/end
+    # valid periods: 1d,5d,1mo,3mo,6mo,1y,2y,5y,10y,ytd,max
+    # (optional, default is '1mo')
+    period = "5d",
+
+    # fetch data by interval (including intraday if period < 60 days)
+    # valid intervals: 1m,2m,5m,15m,30m,60m,90m,1h,1d,5d,1wk,1mo,3mo
+    # (optional, default is '1d')
+    interval = "90m",
+
+    # group by ticker (to access via data['SPY'])
+    # (optional, default is 'column')
+    group_by = 'ticker',
+
+    # adjust all OHLC automatically
+    # (optional, default is False)
+    auto_adjust = True,
+
+    # download pre/post regular market hours data
+    # (optional, default is False)
+    prepost = True,
+
+)
+print(len(data))
+#print(data)
+
+# TODO: find volatility/ volume for past 6(/5?) days at minute frequency,
+#  and today's opening + T-15m price and T-15m volume
+#  We use historical minute freq as it costs 50 credits/ day, whereas EOD is 10 credits/ day (more data)
+#response = requests.get("https://cloud.iexapis.com/stable/stock/twtr/chart/1m?token=pk_9b06c71058734e26b123ee57be97768a")
+response = requests.get("https://sandbox.iexapis.com/stable/stock/twtr/chart/5dm?token=Tsk_f886b230904e46b3ae90e31c6bf195ef")
+closePrices = []
+for line in response.json():
+    closePrices.append(line['close'])
+    print(line['close'])
+print(len(response.json()))
+
+# Have to investigate using ATR vs historical volatility, using the latter for now
+print((closePrices))
+priceChanges = [round(j-i, 3) for i, j in zip(closePrices[:-1], closePrices[1:])]
+print(priceChanges)
+plt.hist(priceChanges, 25)
+plt.show()
