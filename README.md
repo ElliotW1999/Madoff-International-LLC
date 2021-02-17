@@ -35,6 +35,7 @@ Model performance details
   
 ## Resources  
 - https://github.com/EliteQuant/EliteQuant
+- https://quantivity.wordpress.com/  
 #### Strategy  
 - https://miltonfmr.com/how-to-develop-test-and-optimize-a-trading-strategy-complete-guide/
 - https://www.reddit.com/r/algotrading/comments/kubugd/is_it_realistic_for_a_retail_trader_find/
