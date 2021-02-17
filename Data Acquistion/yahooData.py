@@ -2,6 +2,7 @@ import datetime
 from yahoofinancials import YahooFinancials  # use for fundamental data
 import yfinance as yf                        # use for price data
 import pandas as pd
+import numpy as np
 import requests
 #import pyqtgraph #switch to pyqtgraph eventually...
 import matplotlib.pyplot as plt
@@ -49,8 +50,16 @@ for line in response.json():
 print(len(response.json()))
 
 # Have to investigate using ATR vs historical volatility, using the latter for now
-print((closePrices))
-priceChanges = [round(j-i, 3) for i, j in zip(closePrices[:-1], closePrices[1:])]
-print(priceChanges)
-plt.hist(priceChanges, 25)
-plt.show()
+print(closePrices)
+priceChanges = np.array([round(j-i, 3) for i, j in zip(closePrices[:-1], closePrices[1:])])
+#print(priceChanges)
+#plt.hist(priceChanges, 25)
+#plt.plot(closePrices)
+#plt.show()
+
+periodsRoot = 14 # 14^2 = 196 which ~= 195. This makes computation faster
+deviation = np.std(priceChanges)
+avg = np.mean(priceChanges)
+test = [i for i in priceChanges if i > avg+ (3*deviation)]
+print(test)
+
