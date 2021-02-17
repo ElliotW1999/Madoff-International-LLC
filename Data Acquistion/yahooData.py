@@ -44,23 +44,28 @@ print(len(data))
 #response = requests.get("https://cloud.iexapis.com/stable/stock/twtr/chart/1m?token=pk_9b06c71058734e26b123ee57be97768a")
 response = requests.get("https://sandbox.iexapis.com/stable/stock/twtr/chart/5dm?token=Tsk_f886b230904e46b3ae90e31c6bf195ef")
 closePrices = []
+volume = []
 for line in response.json():
     closePrices.append(line['close'])
-    print(line['close'])
+    volume.append(line['volume'])
+    print(line['volume'])
 print(len(response.json()))
 
 # Have to investigate using ATR vs historical volatility, using the latter for now
 print(closePrices)
-priceChanges = np.array([round(j-i, 3) for i, j in zip(closePrices[:-1], closePrices[1:])])# this should be ln(j/i)
-#print(priceChanges)
-#plt.hist(priceChanges, 25)
-#plt.plot(closePrices)
-#plt.show()
+logReturns = np.array([round(np.log(j/i), 3) for i, j in zip(closePrices[:-1], closePrices[1:])]) 
+#print(logReturns)
+#plt.hist(volume, 25)
+fig, axs = plt.subplots(2)
+axs[0].plot(volume)
+
+axs[1].plot(closePrices)
+plt.show()
 
 periodsRoot = 14 # 14^2 = 196 which ~= 195. This makes computation faster
-deviation = np.std(priceChanges)
-avg = np.mean(priceChanges)
-test = [i for i in priceChanges if i > avg+ (3*deviation)]
+deviation = np.std(logReturns)
+avg = np.mean(logReturns)
+test = [i for i in logReturns if i > avg+ (3*deviation)]
 print(test)
 
 
