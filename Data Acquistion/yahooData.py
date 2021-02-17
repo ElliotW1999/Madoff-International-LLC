@@ -51,7 +51,7 @@ print(len(response.json()))
 
 # Have to investigate using ATR vs historical volatility, using the latter for now
 print(closePrices)
-priceChanges = np.array([round(j-i, 3) for i, j in zip(closePrices[:-1], closePrices[1:])])
+priceChanges = np.array([round(j-i, 3) for i, j in zip(closePrices[:-1], closePrices[1:])])# this should be ln(j/i)
 #print(priceChanges)
 #plt.hist(priceChanges, 25)
 #plt.plot(closePrices)
@@ -62,4 +62,6 @@ deviation = np.std(priceChanges)
 avg = np.mean(priceChanges)
 test = [i for i in priceChanges if i > avg+ (3*deviation)]
 print(test)
+
+
 
