@@ -50,7 +50,7 @@ print(len(response.json()))
 
 # Have to investigate using ATR vs historical volatility, using the latter for now
 print((closePrices))
-priceChanges = [round(j-i, 3) for i, j in zip(closePrices[:-1], closePrices[1:])]
+returns = [round(j-i, 3) for i, j in zip(closePrices[:-1], closePrices[1:])] # this should be ln(j/i)
 print(priceChanges)
 plt.hist(priceChanges, 25)
 plt.show()
