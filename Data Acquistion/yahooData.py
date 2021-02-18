@@ -53,7 +53,7 @@ print(len(response.json()))
 
 # Have to investigate using ATR vs historical volatility, using the latter for now
 print(closePrices)
-logReturns = np.array([round(np.log(j/i), 3) for i, j in zip(closePrices[:-1], closePrices[1:])]) 
+logReturns = np.array([round(np.log(j/i), 3) for i, j in zip(closePrices[:-1], closePrices[1:])]) # np.log(j/i) - 1 ?
 #print(logReturns)
 #plt.hist(volume, 25)
 fig, axs = plt.subplots(2)
@@ -67,6 +67,6 @@ deviation = np.std(logReturns)
 avg = np.mean(logReturns)
 test = [i for i in logReturns if i > avg+ (3*deviation)]
 print(test)
-
+# use average deviation to find outliers in volume
 
 
