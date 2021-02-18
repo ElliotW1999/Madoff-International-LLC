@@ -42,7 +42,7 @@ print(len(data))
 #  and today's opening + T-15m price and T-15m volume
 #  We use historical minute freq as it costs 50 credits/ day, whereas EOD is 10 credits/ day (more data)
 #response = requests.get("https://cloud.iexapis.com/stable/stock/twtr/chart/1m?token=pk_9b06c71058734e26b123ee57be97768a")
-response = requests.get("https://sandbox.iexapis.com/stable/stock/twtr/chart/5dm?token=Tsk_f886b230904e46b3ae90e31c6bf195ef")
+response = requests.get("https://sandbox.iexapis.com/stable/stock/gme/chart/5dm?token=Tsk_f886b230904e46b3ae90e31c6bf195ef")
 closePrices = []
 volume = []
 for line in response.json():
@@ -54,19 +54,22 @@ print(len(response.json()))
 # Have to investigate using ATR vs historical volatility, using the latter for now
 print(closePrices)
 logReturns = np.array([round(np.log(j/i), 3) for i, j in zip(closePrices[:-1], closePrices[1:])]) # np.log(j/i) - 1 ?
-#print(logReturns)
-#plt.hist(volume, 25)
-fig, axs = plt.subplots(2)
-axs[0].plot(volume)
 
-axs[1].plot(closePrices)
-plt.show()
 
 periodsRoot = 14 # 14^2 = 196 which ~= 195. This makes computation faster
-deviation = np.std(volume)
-avg = np.mean(volume)
-test = [i for i in volume if i > avg+ (3*deviation)]
+volumeAvg = np.median(volume)                                 # we use the median because the data is strongly skewed
+volumeDeviation = np.mean(np.absolute(volume - volumeAvg))    # std dev is not used as the data is skewed
+print(volumeDeviation)
+test = [volume.index(i) for i in volume if i > volumeAvg + (5*volumeDeviation)]
 print(test)
-# use average deviation to find outliers in volume
 
-
+fig, axs = plt.subplots(2, 2)
+axs[0, 0].plot(volume)
+axs[1, 0].plot(closePrices)
+axs[0, 1].hist(volume, 25)
+axs[1, 1].hist(closePrices, 25)
+axs[0, 0].set_title("Time-series")
+axs[0, 0].set(ylabel="Volume")
+axs[0, 1].set_title("Histogram")
+axs[1, 0].set(ylabel="Price")
+plt.show()
