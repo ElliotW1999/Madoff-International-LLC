@@ -67,6 +67,6 @@ deviation = np.std(volume)
 avg = np.mean(volume)
 test = [i for i in volume if i > avg+ (3*deviation)]
 print(test)
-
+# use average deviation to find outliers in volume
 
 
