@@ -72,5 +72,5 @@ def insert_snp500_symbols(symbols):
 if __name__ == "__main__":
     symbols = obtain_parse_wiki_snp500()
     print("https://www.lazyfa.com/" + symbols[0] + "/dashboard/metrics/", )
-    #insert_snp500_symbols(symbols)
+    insert_snp500_symbols(symbols)
     print("%s symbols were successfully added." % len(symbols))

@@ -1,11 +1,9 @@
-import datetime
 from yahoofinancials import YahooFinancials  # use for fundamental data
 import yfinance as yf                        # use for price data
-import pandas as pd
-import numpy as np
+import os
 import requests
-#import pyqtgraph #switch to pyqtgraph eventually...
-import matplotlib.pyplot as plt
+import sqlite3
+from sqlite3 import Error
 
 ticker = "SPY AAPL MSFT"
 data = yf.download(  # or pdr.get_data_yahoo(...
@@ -39,37 +37,42 @@ print(len(data))
 #print(data)
 
 # TODO: find volatility/ volume for past 6(/5?) days at minute frequency,
-#  and today's opening + T-15m price and T-15m volume
+#  and today's openPricesing + T-15m price and T-15m volume
 #  We use historical minute freq as it costs 50 credits/ day, whereas EOD is 10 credits/ day (more data)
 #response = requests.get("https://cloud.iexapis.com/stable/stock/twtr/chart/1m?token=pk_9b06c71058734e26b123ee57be97768a")
-response = requests.get("https://sandbox.iexapis.com/stable/stock/gme/chart/5dm?token=Tsk_f886b230904e46b3ae90e31c6bf195ef")
+response = requests.get("https://sandbox.iexapis.com/stable/stock/pltr/chart/5dm?token=Tsk_f886b230904e46b3ae90e31c6bf195ef")
+#response = requests.get("https://cloud.iexapis.com/stable/stock/pltr/chart/5dm?token=pk_9b06c71058734e26b123ee57be97768a")
+
+date = []
+openPrices = []
+highPrices = []
+lowPrices = []
 closePrices = []
 volume = []
 for line in response.json():
+    date.append(line['date'])
+    openPrices.append(line['open'])
+    highPrices.append(line['high'])
+    lowPrices.append(line['low'])
     closePrices.append(line['close'])
     volume.append(line['volume'])
-    print(line['volume'])
-print(len(response.json()))
+print(type(closePrices[0]))
 
-# Have to investigate using ATR vs historical volatility, using the latter for now
-print(closePrices)
-logReturns = np.array([round(np.log(j/i), 3) for i, j in zip(closePrices[:-1], closePrices[1:])]) # np.log(j/i) - 1 ?
+db_file = os.path.dirname(os.path.dirname( __file__ ))+"/Data/tickers.db"
+
+print(db_file)
+conn = None
+try:
+    conn = sqlite3.connect(db_file)
+except Error as e:
+    print(e)
+cur = conn.cursor()
+
+print(date[0])
+for i in range(0,len(volume)):
+    sqlite_insert_with_param = """INSERT INTO price (date, open, high, low, close, volume) VALUES (?, ?, ?, ?, ?, ?);"""
+    data_tuple = ("2021-02-12", openPrices[i], highPrices[i], lowPrices[i], closePrices[i], volume[i])
+    cur.execute(sqlite_insert_with_param, data_tuple)
+#conn.commit()
 
 
-periodsRoot = 14 # 14^2 = 196 which ~= 195. This makes computation faster
-volumeAvg = np.median(volume)                                 # we use the median because the data is strongly skewed
-volumeDeviation = np.mean(np.absolute(volume - volumeAvg))    # std dev is not used as the data is skewed
-print(volumeDeviation)
-test = [volume.index(i) for i in volume if i > volumeAvg + (5*volumeDeviation)]
-print(test)
-
-fig, axs = plt.subplots(2, 2)
-axs[0, 0].plot(volume)
-axs[1, 0].plot(closePrices)
-axs[0, 1].hist(volume, 25)
-axs[1, 1].hist(closePrices, 25)
-axs[0, 0].set_title("Time-series")
-axs[0, 0].set(ylabel="Volume")
-axs[0, 1].set_title("Histogram")
-axs[1, 0].set(ylabel="Price")
-plt.show()
