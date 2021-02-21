@@ -15,10 +15,10 @@ except Error as e:
     print(e)
 cur = conn.cursor()
 
-cur.execute("SELECT * FROM price")
+cur.execute("SELECT * FROM dailyPriceData")
 data = cur.fetchall()
-closePrices = [x[4] for x in data]
-volume = [x[5] for x in data]
+closePrices = [x[6] for x in data]
+volume = [x[7] for x in data]
 
 # Have to investigate using ATR vs historical volatility, using the latter for now
 logReturns = [round(np.log(j/i), 3) for i, j in zip(closePrices[:-1], closePrices[1:])] # np.log(j/i) - 1 ?
