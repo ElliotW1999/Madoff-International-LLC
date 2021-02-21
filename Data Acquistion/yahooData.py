@@ -33,8 +33,6 @@ data = yf.download(  # or pdr.get_data_yahoo(...
     prepost = True,
 
 )
-print(len(data))
-#print(data)
 
 # TODO: find volatility/ volume for past 6(/5?) days at minute frequency,
 #  and today's openPricesing + T-15m price and T-15m volume
@@ -42,6 +40,7 @@ print(len(data))
 #response = requests.get("https://cloud.iexapis.com/stable/stock/twtr/chart/1m?token=pk_9b06c71058734e26b123ee57be97768a")
 response = requests.get("https://sandbox.iexapis.com/stable/stock/pltr/chart/5dm?token=Tsk_f886b230904e46b3ae90e31c6bf195ef")
 #response = requests.get("https://cloud.iexapis.com/stable/stock/pltr/chart/5dm?token=pk_9b06c71058734e26b123ee57be97768a")
+# don't use my goddamn API key
 
 date = []
 openPrices = []
@@ -74,5 +73,3 @@ for i in range(0,len(volume)):
     data_tuple = ("2021-02-12", openPrices[i], highPrices[i], lowPrices[i], closePrices[i], volume[i])
     cur.execute(sqlite_insert_with_param, data_tuple)
 #conn.commit()
-
-
