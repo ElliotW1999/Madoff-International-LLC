@@ -63,7 +63,9 @@ Model performance details
 #### Markets
 - https://www.tradientblog.com/2020/03/understanding-the-limit-order-book/  
 - https://squeezemetrics.com/download/The_Implied_Order_Book.pdf  
-- CBOE Beginners Options course
+- CBOE Beginners Options course  
+- http://www.personal.ceu.hu/students/13/Patrik_Korda/files/Financial%20Markets.pdf
+- http://www.econ.yale.edu/~shiller/pubs/p1055.pdf  
 #### Textbooks  
 - Halls-Moore, Michael. Successful Algorithmic Trading.  
 - Halls-Moore, Michael. Advanced Algorithmic Trading.  
