@@ -75,6 +75,7 @@ Model performance details
 - Aronson, David. Evidence Based Technical Analysis.  
 - Quantitative Equity Investing?  
 - Trading Systems + Methods?  
+- http://www.personal.ceu.hu/students/13/Patrik_Korda/files/Financial%20Markets.pdf
 - https://recision.files.wordpress.com/2010/12/jens-parsson-dying-of-money-24.pdf
 - http://www.acsu.buffalo.edu/~keechung/MGF743/Readings/Trading-Exchanges-Market-Microstructure-Practitioners%20Draft%20Copy.pdf
 ## Google Drive  
