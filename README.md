@@ -49,7 +49,8 @@ Model performance details
 - Quandl, Oanda  
 - https://tickstory.com/  
 - https://swaggystocks.com/dashboard/wallstreetbets/ticker-sentiment  
-- https://whalewisdom.com/statistics/trends
+- https://whalewisdom.com/statistics/trends  
+- https://data.bls.gov/pdq/SurveyOutputServlet
 #### Backtesting
 - https://www.quantconnect.com/
 - https://www.backtrader.com/
@@ -74,5 +75,7 @@ Model performance details
 - Aronson, David. Evidence Based Technical Analysis.  
 - Quantitative Equity Investing?  
 - Trading Systems + Methods?  
+- https://recision.files.wordpress.com/2010/12/jens-parsson-dying-of-money-24.pdf
+- http://www.acsu.buffalo.edu/~keechung/MGF743/Readings/Trading-Exchanges-Market-Microstructure-Practitioners%20Draft%20Copy.pdf
 ## Google Drive  
 https://drive.google.com/drive/u/1/folders/0AEUK-MmQvv-FUk9PVA
