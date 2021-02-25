@@ -58,6 +58,7 @@ Model performance details
 - https://github.com/mhallsmoore/qstrader ? 
 - https://www.portfoliovisualizer.com/ ?  
 - Quantstrat (R) ?
+- https://quarkfin.github.io/qf-lib-info/ ?
 #### Paper Trading
 - https://github.com/alpacahq/alpaca-backtrader-api  
 - TD Ameritrade?  
