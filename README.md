@@ -31,7 +31,8 @@ Model performance details
 - Research/ create a robust backtesting platform  
 - Full strategy backtesting pipeline (ideation to evaluation, inc. monte carlo simulation)  
 - Test BTC/ETH Pairs trader with backtrader
-- LazyFA web scraper
+- Fundamental analysis-based investment portfolio using LazyFA
+- Stock screener with volume (and google trends?)
   
 ## Resources  
 - https://github.com/EliteQuant/EliteQuant
