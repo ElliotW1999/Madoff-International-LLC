@@ -5,6 +5,12 @@
   <img src="https://img0.oastatic.com/img2/1052809/1080x410r/aussicht-vom-gipfel.jpg" >
 </p>
   
+## Getting Started (recommended)  
+1. Read one of the introductory textbooks to gain an overview of trading systems
+2. Choose an area you find interesting
+3. Browse the resources, textbooks, and code related to that area 
+4. Develop a system/ find resources that extends this area
+
 ## Areas of focus:
 Strategy Development  
 Engineering  
@@ -27,7 +33,6 @@ Model performance details
 - Develop a custom backtesting system
   
 ## TODO
-- Project roadmap
 - Research/ create a robust backtesting platform  
 - Full strategy backtesting pipeline (ideation to evaluation, inc. monte carlo simulation)  
 - Test BTC/ETH Pairs trader with backtrader
@@ -69,10 +74,10 @@ Model performance details
 - CBOE Beginners Options course  
 - http://www.personal.ceu.hu/students/13/Patrik_Korda/files/Financial%20Markets.pdf
 - http://www.econ.yale.edu/~shiller/pubs/p1055.pdf  
-#### Textbooks  
-- Halls-Moore, Michael. Successful Algorithmic Trading.  
+#### Textbooks (* = introductory)  
+- * Halls-Moore, Michael. Successful Algorithmic Trading.  
 - Halls-Moore, Michael. Advanced Algorithmic Trading.  
-- Carver, Robert. Systematic Trading.  
+- * Carver, Robert. Systematic Trading.  
 - Natenberg, Sheldon. Option Volatility and Pricing.  
 - Aronson, David. Evidence Based Technical Analysis.  
 - Quantitative Equity Investing?  
@@ -81,5 +86,6 @@ Model performance details
 - https://recision.files.wordpress.com/2010/12/jens-parsson-dying-of-money-24.pdf
 - http://www.acsu.buffalo.edu/~keechung/MGF743/Readings/Trading-Exchanges-Market-Microstructure-Practitioners%20Draft%20Copy.pdf
 - Quantitative Equity Portfolio Management by Chincarini and Kim
+- * A Random Walk down Wall Street  
 ## Google Drive  
 https://drive.google.com/drive/u/1/folders/0AEUK-MmQvv-FUk9PVA
