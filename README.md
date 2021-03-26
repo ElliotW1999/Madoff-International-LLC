@@ -13,8 +13,8 @@
 
 ## Areas of focus:
 Strategy Development  
-Engineering  
-Data Acquisition  
+Engineering & Execution  
+Data Acquisition & Management  
 Backtesting  
 
 ## Goals
