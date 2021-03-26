@@ -75,9 +75,9 @@ Model performance details
 - http://www.personal.ceu.hu/students/13/Patrik_Korda/files/Financial%20Markets.pdf
 - http://www.econ.yale.edu/~shiller/pubs/p1055.pdf  
 #### Textbooks (* = introductory)  
-- /* Halls-Moore, Michael. Successful Algorithmic Trading.  
+- \* Halls-Moore, Michael. Successful Algorithmic Trading.  
 - Halls-Moore, Michael. Advanced Algorithmic Trading.  
-- /* Carver, Robert. Systematic Trading.  
+- \* Carver, Robert. Systematic Trading.  
 - Natenberg, Sheldon. Option Volatility and Pricing.  
 - Aronson, David. Evidence Based Technical Analysis.  
 - Quantitative Equity Investing?  
@@ -86,6 +86,6 @@ Model performance details
 - https://recision.files.wordpress.com/2010/12/jens-parsson-dying-of-money-24.pdf
 - http://www.acsu.buffalo.edu/~keechung/MGF743/Readings/Trading-Exchanges-Market-Microstructure-Practitioners%20Draft%20Copy.pdf
 - Quantitative Equity Portfolio Management by Chincarini and Kim
-- /* A Random Walk down Wall Street  
+- \* A Random Walk down Wall Street  
 ## Google Drive  
 https://drive.google.com/drive/u/1/folders/0AEUK-MmQvv-FUk9PVA
