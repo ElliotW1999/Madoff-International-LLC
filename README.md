@@ -57,6 +57,7 @@ Model performance details
 - https://swaggystocks.com/dashboard/wallstreetbets/ticker-sentiment  
 - https://whalewisdom.com/statistics/trends  
 - https://data.bls.gov/pdq/SurveyOutputServlet
+- https://api.stocktwits.com/developers/docs
 #### Backtesting
 - https://www.quantconnect.com/
 - https://www.backtrader.com/
