@@ -42,4 +42,5 @@ for i in range(0,len(volume)):
     VALUES (?, ?, ?, ?, ?, ?, ?);"""
     data_tuple = (symbol_id, priceDate[i], openPrices[i], highPrices[i], lowPrices[i], closePrices[i], volume[i])
     cur.execute(sqlite_insert_with_param, data_tuple)
-conn.commit()
+#conn.commit()
+# TODO: unhighlight this line above to add data to db^

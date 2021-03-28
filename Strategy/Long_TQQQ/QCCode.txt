@@ -1,0 +1,22 @@
+from datetime import datetime
+from System import *
+from QuantConnect import *
+from QuantConnect.Algorithm import *
+
+class ParticleUncoupledCoreWave(QCAlgorithm):
+
+    def Initialize(self):
+        self.SetStartDate(2011,1,1)
+        self.SetEndDate(2021,1,1)
+        self.SetCash(100000)  # Set Strategy Cash
+        symbol = "TQQQ"
+        self.AddEquity(symbol, Resolution.Daily)
+
+        #self.SetWarmUp(20)
+
+    def OnData(self, data):
+        '''OnData event is the primary entry point for your algorithm. Each new data point will be pumped in here.
+            Arguments:
+                data: Slice object keyed by symbol containing the stock data
+        '''
+        self.SetHoldings("TQQQ", 1.0)

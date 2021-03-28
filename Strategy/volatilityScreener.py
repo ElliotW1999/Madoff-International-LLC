@@ -30,7 +30,7 @@ periodsRoot = 14 # 14^2 = 196 which ~= 195. This makes computation faster
 volumeAvg = np.median(volume)                                 # we use the median because the data is strongly skewed
 volumeDeviation = np.mean(np.absolute(volume - volumeAvg))    # std dev is not used as the data is skewed
 print(volumeDeviation)
-test = [[volume.index(i),i] for i in volume if i > volumeAvg + (5*volumeDeviation)]
+test = [[volume.index(i),i] for i in volume if i > volumeAvg + (6*volumeDeviation)]
 
 
 priceOutliers = [[logReturns.index(i),i] for i in logReturns if i > returnsAvg + 2*returnsDeviation
@@ -38,7 +38,7 @@ priceOutliers = [[logReturns.index(i),i] for i in logReturns if i > returnsAvg +
 print(test)
 print(priceOutliers)
 
-fig, axs = plt.subplots(2, 2)
+fig, axs = plt.subplots(3, 2)
 axs[0, 0].plot(volume)
 axs[0, 0].scatter([x[0] for x in test], [x[1] for x in test], c='#FF0000', marker='x')
 axs[1, 0].plot(logReturns)
@@ -50,4 +50,7 @@ axs[0, 0].set_title("Time-series")
 axs[0, 0].set(ylabel="Volume")
 axs[0, 1].set_title("Histogram")
 axs[1, 0].set(ylabel="log Returns")
+
+axs[2, 0].plot(closePrices)
+
 plt.show()
