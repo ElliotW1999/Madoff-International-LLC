@@ -87,6 +87,7 @@ Model performance details
 - https://recision.files.wordpress.com/2010/12/jens-parsson-dying-of-money-24.pdf
 - http://www.acsu.buffalo.edu/~keechung/MGF743/Readings/Trading-Exchanges-Market-Microstructure-Practitioners%20Draft%20Copy.pdf
 - Quantitative Equity Portfolio Management by Chincarini and Kim
-- \* A Non-Random Walk down Wall Street, Lo  
+- \* Max Dama's Introduction to Algotrading
+- A Non-Random Walk down Wall Street, Lo  
 ## Google Drive  
 https://drive.google.com/drive/u/1/folders/0AEUK-MmQvv-FUk9PVA
