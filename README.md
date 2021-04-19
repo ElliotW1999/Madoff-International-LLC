@@ -38,6 +38,7 @@ Model performance details
 - Test BTC/ETH Pairs trader with backtrader
 - Fundamental analysis-based investment portfolio using LazyFA
 - Stock screener with volume (and google trends?)
+- BTC order book using websocket (https://docs.pro.coinbase.com/#get-product-order-book)
   
 ## Resources  
 - https://github.com/EliteQuant/EliteQuant
@@ -52,8 +53,7 @@ Model performance details
 - http://www.lazyfa.com/  
 - https://www.reddit.com/r/algotrading/comments/lelkme/stock_tracker_and_analysis_spreadsheet/  
 - https://www.reddit.com/r/algotrading/comments/kuo2ef/live_options_market_data/  
-- Quandl, Oanda  
-- https://tickstory.com/  
+- Quandl 
 - https://swaggystocks.com/dashboard/wallstreetbets/ticker-sentiment  
 - https://whalewisdom.com/statistics/trends  
 - https://data.bls.gov/pdq/SurveyOutputServlet
@@ -61,11 +61,6 @@ Model performance details
 #### Backtesting
 - https://www.quantconnect.com/
 - https://www.backtrader.com/
-- MetaTrader 5 (C)  
-- https://github.com/mhallsmoore/qstrader ? 
-- https://www.portfoliovisualizer.com/ ?  
-- Quantstrat (R) ?
-- https://quarkfin.github.io/qf-lib-info/ ?
 #### Paper Trading
 - https://github.com/alpacahq/alpaca-backtrader-api  
 - TD Ameritrade?  
@@ -76,9 +71,11 @@ Model performance details
 - http://www.personal.ceu.hu/students/13/Patrik_Korda/files/Financial%20Markets.pdf
 - http://www.econ.yale.edu/~shiller/pubs/p1055.pdf  
 #### Textbooks (* = introductory)  
-- \* Halls-Moore, Michael. Successful Algorithmic Trading.  
-- Halls-Moore, Michael. Advanced Algorithmic Trading.  
+- \* Max Dama's Introduction to Algotrading
 - \* Carver, Robert. Systematic Trading.  
+- \* Halls-Moore, Michael. Successful Algorithmic Trading.
+- Ernest Chan  
+- Halls-Moore, Michael. Advanced Algorithmic Trading.  
 - Natenberg, Sheldon. Option Volatility and Pricing.  
 - Aronson, David. Evidence Based Technical Analysis.  
 - Quantitative Equity Investing?  
@@ -87,7 +84,6 @@ Model performance details
 - https://recision.files.wordpress.com/2010/12/jens-parsson-dying-of-money-24.pdf
 - http://www.acsu.buffalo.edu/~keechung/MGF743/Readings/Trading-Exchanges-Market-Microstructure-Practitioners%20Draft%20Copy.pdf
 - Quantitative Equity Portfolio Management by Chincarini and Kim
-- \* Max Dama's Introduction to Algotrading
 - A Non-Random Walk down Wall Street, Lo  
 ## Google Drive  
 https://drive.google.com/drive/u/1/folders/0AEUK-MmQvv-FUk9PVA
