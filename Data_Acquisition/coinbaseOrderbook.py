@@ -3,7 +3,7 @@ from datetime import datetime
 from copra.websocket import Channel, Client, FEED_URL
 import os
 import sqlite3
-from sqlite3 import Error, Cursor
+from sqlite3 import Error
 
 
 class Ticker(Client):
@@ -14,25 +14,34 @@ class Ticker(Client):
         super().__init__(loop, channels, feed_url, auth, key, secret, passphrase, auto_connect, auto_reconnect, name)
 
         db_file = os.path.dirname(os.path.dirname(__file__)) + "/Data/orderbook.db"
-        conn = None
+        self.conn = None
         try:
-            conn = sqlite3.connect(db_file)
+            self.conn = sqlite3.connect(db_file)
         except Error as e:
             print(e)
-        self.cur = conn.cursor()
-
-    def initDatabase(self, cursor):
-        pass
+        self.cur = self.conn.cursor()
 
     def on_message(self, message):
         if message['type'] == 'l2update':
-            print(message['product_id'])
-            print(message['changes'])
-            print(datetime.strptime(message['time'], '%Y-%m-%dT%H:%M:%S.%fZ') )
+            timestamp = datetime.strptime(message['time'], '%Y-%m-%dT%H:%M:%S.%fZ')
+            for change in message['changes']:
+                sqlite_insert_with_param = """INSERT INTO updates (time, side, price, size) VALUES (?, ?, ?, ?);"""
+                data_tuple = (timestamp, change[0], change[1], change[2])
+                self.cur.execute(sqlite_insert_with_param, data_tuple)
+            self.conn.commit()
+
         elif message['type'] == 'snapshot':
-            print(message['product_id'])
-            print(message['bids'])
-            print(message['asks'])
+            for bid in message['bids']:
+                sqlite_insert_with_param = """INSERT INTO snapshot (bids_price, bids_vol) VALUES (?, ?);"""
+                data_tuple = (bid[0], bid[1])
+                self.cur.execute(sqlite_insert_with_param, data_tuple)
+
+            for ask in message['asks']:
+                sqlite_insert_with_param = """INSERT INTO snapshot (asks_price, asks_vol) VALUES (?, ?);"""
+                data_tuple = (ask[0], ask[1])
+                self.cur.execute(sqlite_insert_with_param, data_tuple)
+
+            self.conn.commit()
 
 
 loop = asyncio.get_event_loop()
