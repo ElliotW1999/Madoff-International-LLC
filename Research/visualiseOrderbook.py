@@ -14,23 +14,49 @@ except Error as e:
     print(e)
 cur = conn.cursor()
 
-cur.execute("SELECT * FROM snapshot Where asks_price IS NOT NULL limit 3200")
+cur.execute("SELECT * FROM snapshot Where asks_price IS NOT NULL limit 2000")
 asks = cur.fetchall()
 asks = pd.DataFrame(asks, columns=["bids price", "bids vol", "asks price", "asks vol"]).dropna(axis=1)
 asks.set_index("asks price", drop=True, inplace=True)
-print(asks.index[0])
-asks['pct diff'] = [round(100*(round((x/asks.index[0]), 3)-1),2) for x in asks.index]
-#asks['pct diff'] = [(round((x/asks.index[0]), 4)) for x in asks.index]
-print(asks)
-grouped = asks.groupby('pct diff')
-print(grouped.sum())
+cur.execute("SELECT * FROM updates limit 100")
+
+#TODO : group updates by minute
+updates = cur.fetchall()
+#updates = pd.DataFrame(updates)
+#print(updates)
+for update in updates:
+    if update[1] == "sell":
+        asks[update[0]] = asks.iloc[:,-1:]
+        if update[3] == 0:
+            asks.loc[update[2], update[0]] = 0.0
+        else:
+            try:
+                asks.loc[update[2], update[0]] += update[3]
+            except:
+                asks.loc[update[2], update[0]] = update[3]
+
+buckets = asks.copy().fillna(0)
+buckets['price (00) (floor)'] = [int(str(x)[:3]) for x in asks.index]
+buckets.set_index('price (00) (floor)', drop=True)
+#print(buckets)
+#buckets = buckets.applymap(lambda x: int(str(x)[:3]) )
+#print(asks.columns)
+#print(asks)
+#print(asks.applymap(lambda x: int(str(x)[:3]) ) )
+#print(buckets)
+
+#todo: select resolution of x and y axis
+asksGrouped = buckets.groupby('price (00) (floor)')
+#print(asksGrouped.sum())
 
 cur.execute("SELECT * FROM snapshot Where bids_price IS NOT NULL limit 5000")  # ~15% pct diff from best bid
 bids = cur.fetchall()
 bids = pd.DataFrame(bids).dropna(axis=1)
 #print(bids)
 fig, ax = plt.subplots(figsize=(16, 16))
-ax = sns.heatmap(grouped.sum(), annot=True)
+ax = sns.heatmap(asksGrouped.sum(), cmap="Reds", annot=True)
+plt.yticks(rotation=0)
+
 
 #cur.execute("SELECT * FROM snapshot Where asks_price IS NOT NULL Limit 5000")
 #asks = cur.fetchall()
