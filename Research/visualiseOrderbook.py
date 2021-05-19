@@ -21,19 +21,62 @@ asks.set_index("asks price", drop=True, inplace=True)
 cur.execute("SELECT * FROM updates limit 100")
 
 #TODO : group updates by minute
+# currently pretty slow, might need vectorization
+
 updates = cur.fetchall()
-#updates = pd.DataFrame(updates)
-#print(updates)
+updates = pd.DataFrame(updates)
+updates[updates.columns.values[0]] = updates[updates.columns.values[0]].apply(lambda x: str(x)[:-7] )
+updates = updates.set_index(updates.columns[0])
+sellUpdates = updates[updates[1] == "sell"]
+sellUpdates = sellUpdates.drop(sellUpdates.columns.values[0], axis=1)
+#TODO: repeat for buys
+buyUpdates = updates[updates[1] == "buy"]
+
+#minutes = updates.index.unique()
+minute = "2021-04-28 05:24:26"
+#for minute in minutes:
+# add column for minute
+asks[minute] = asks.iloc[:, -1:]
+# add rows for new prices
+
+addedSells = sellUpdates[(sellUpdates.index == minute) & (sellUpdates[3] != 0)].reset_index(drop=True)
+
+newAddedSells = addedSells[~addedSells[2].isin(asks.index)]
+modAddedSells = addedSells[addedSells[2].isin(asks.index)]
+#print(modAddedSells[3].reset_index(drop=True))
+#print(pd.Series(asks.index))
+#asks.loc[modAddedSells[2], minute] += modAddedSellsGrouped.sum()
+asks.loc[modAddedSells[2], minute] += modAddedSells[3].values
+#print(asks.loc[modAddedSells[2], minute])
+#print(asks.loc[modAddedSells[2], minute] + modAddedSells[3].values)
+
+#print(newAddedSells)
+#print(updates[(updates.index == minute) & (updates[3] != 0)])
+#print(updates[(updates.index == minute) & (updates[3] == 0)][2])
+#print(asks[asks.index.isin(priceLevels)])
+
+
+# add to existing prices
+# deduct cleared prices
+
+
+currentTime = updates[0][0][0:-10]              # initial time in minutes
+asks[updates[0][0][0:-10]] = asks.iloc[:,-1:]   # duplicates initial snapshot for first minute
 for update in updates:
-    if update[1] == "sell":
-        asks[update[0]] = asks.iloc[:,-1:]
-        if update[3] == 0:
+    #print(update[0][0:-10])
+    #print(currentTime)
+    if (update[0][0:-10] != currentTime):       # if new minute, create a new column
+        currentTime = update[0][0:-7]
+        asks[currentTime] = asks.iloc[:,-1:]
+    if update[1] == "sell":                     # for changes to sell orders
+        if update[3] == 0:                      # if price level is cleared
             asks.loc[update[2], update[0]] = 0.0
         else:
-            try:
+            try:                                # update exisitng price level
                 asks.loc[update[2], update[0]] += update[3]
-            except:
+            except:                             # if level does not exist, create new level
                 asks.loc[update[2], update[0]] = update[3]
+    # TODO: else if "buy"
 
 buckets = asks.copy().fillna(0)
 buckets['price (00) (floor)'] = [int(str(x)[:3]) for x in asks.index]
@@ -65,4 +108,20 @@ plt.yticks(rotation=0)
 #plt.plot(bids[1], bids[0], "limegreen", label="bids")
 #plt.legend()
 
-plt.show()
+#plt.show()
+
+
+
+
+#print(list(modAddedSells[3]))
+#print(pd.Series(asks.index))
+#asks.loc[modAddedSells[2], minute] += modAddedSellsGrouped.sum()
+#asks.loc[modAddedSells[2], minute] += list(modAddedSells[3])
+#print(asks.loc[modAddedSells[2], minute])
+#print(asks)
+#print(newAddedSells)
+#print(updates[(updates.index == minute) & (updates[3] != 0)])
+#print(updates[(updates.index == minute) & (updates[3] == 0)][2])
+#print(asks[asks.index.isin(priceLevels)])
+
+
