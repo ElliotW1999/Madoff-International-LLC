@@ -16,35 +16,50 @@ cur = conn.cursor()
 
 cur.execute("SELECT * FROM minuteSnapshots Where asks_price IS NOT NULL")
 asks = cur.fetchall()
-asks = pd.DataFrame(asks, columns=["time", "bids price", "bids vol", "price", "vol"]).dropna(axis=1)
-asks['bucket'] = [int(str(x)[:3]) for x in asks['price']]
-print(asks)
-# TODO: separate by time, then group by bucket, then combine
+asks = pd.DataFrame(asks, columns=["time", "bids price", "bids vol", "price", "asks"]).dropna(axis=1)
+asks['price (x100)'] = [int(str(x)[:3]) for x in asks['price']]     # rounds to nearest hundred
+
+# separate by time, then group by price (x100), then combine
 times = asks['time'].tolist()
 times = sorted(list(set(times)))
-print(times)
-# TODO: make these not hardcoded
-maxbucket = asks[asks['time'] == "2021-05-19 18:48:26.295298"].ind
-minbucket = 0
+i = 0
 for time in times:
-    print(time)
+    times[i] = asks[asks['time'] == time]
+    times[i] = times[i].rename(columns={'asks' : time[:-10]})
+    times[i] = times[i].groupby('price (x100)')
+    i = i+1
 
+asksVisualised = pd.concat([x.sum() for x in times], axis=1, join='outer')
+asksVisualised = asksVisualised.drop('price', axis=1)
+asksVisualised = asksVisualised.iloc[::-1] # flip vertically for visualisation
 
-timeA = asks[asks['time'] == "2021-05-19 18:48:26.295298"]
-timeB = asks[asks['time'] == "2021-05-19 20:03:25.289879"]
-timeAgrouped = timeA.groupby('bucket')
-timeBgrouped = timeB.groupby('bucket')
+# --------- repeat for bids -----------
+cur.execute("SELECT * FROM minuteSnapshots Where bids_price IS NOT NULL")
+bids = cur.fetchall()
+bids = pd.DataFrame(bids, columns=["time", "price", "bids", "asks price", "asks vol"]).dropna(axis=1)
+bids['price (x100)'] = [int(str(x)[:3]) for x in bids['price']]     # rounds to nearest hundred
 
-print(timeAgrouped.sum())
-print(timeBgrouped.sum())
-test = pd.concat([timeAgrouped.sum(), timeBgrouped.sum()], axis=1, join='outer')
-test = test.drop('price', axis=1)
-print(test)
+# separate by time, then group by price (x100), then combine
+times = bids['time'].tolist()
+times = sorted(list(set(times)))
+i = 0
+for time in times:
+    times[i] = bids[bids['time'] == time]
+    times[i] = times[i].rename(columns={'bids' : time[:-10]})
+    times[i] = times[i].groupby('price (x100)')
+    i = i+1
 
-asks.set_index('bucket', drop=True)
-asks = asks.drop('price', axis=1)
-#bidsGrouped = asks.groupby('bucket')
-fig, ax = plt.subplots(figsize=(16, 16))
-ax = sns.heatmap(test, cmap="Reds", annot=True)
+bidsVisualised = pd.concat([x.sum() for x in times], axis=1, join='outer')
+bidsVisualised = bidsVisualised.drop('price', axis=1)
+bidsVisualised = bidsVisualised.iloc[::-1] # flip vertically for visualisation
+
+fig, axs = plt.subplots(nrows=2, figsize=(20, 20))
+
+# may be able to have both on one plot?
+#axs = sns.heatmap(pd.concat([asksVisualised, bidsVisualised], axis=0, join='outer'), cmap="Reds", annot=False)
+sns.heatmap(asksVisualised, ax=axs[0], cmap="Reds", annot=False)
+
+sns.heatmap(bidsVisualised, ax=axs[1], cmap="Greens", annot=False)
+
 plt.yticks(rotation=0)
 plt.show()
