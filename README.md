@@ -50,6 +50,8 @@ Model performance details
 - https://quant.stackexchange.com/questions/3456/how-to-build-a-mean-reverting-basket  
 - https://stackoverflow.com/questions/22583391/peak-signal-detection-in-realtime-timeseries-data?page=1&tab=oldest  
 - https://omscs.gatech.edu/cs-7646-machine-learning-trading-course-videos
+- https://www.quantconnect.com/tutorials/strategy-library/strategy-library
+- https://www.math.nyu.edu/~avellane/AvellanedaLeeStatArb071108.pdf
 #### Data Acquisition  
 - http://www.lazyfa.com/  
 - https://www.reddit.com/r/algotrading/comments/lelkme/stock_tracker_and_analysis_spreadsheet/  
