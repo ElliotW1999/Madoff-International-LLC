@@ -1,40 +1,33 @@
-from datetime import datetime
+from datetime import datetime, timedelta
 import requests
 import boto3
+import csv
+import json
 
-def lambda_handler(event, context):   
-    btc_usd_ticker = requests.get('https://api-public.sandbox.pro.coinbase.com/products/BTC-USD/book?level=3').json()
-    bestBid = btc_usd_ticker['bids'][0][0]
-    dataframe = ['bids,']
-    for order in btc_usd_ticker['bids']:
-        # break out if price is +- 25%
-        if (float(order[0]) < (3*float(bestBid)/4)):
-            break
-        else:
-            dataframe += [order[0] + "," + order[1] + ""]
-
-    dataframe += ['asks,']
-    bestAsk = btc_usd_ticker['asks'][0][0]
-    print(bestAsk)
-    for order in btc_usd_ticker['asks']:
-        if (float(order[0]) > (float(bestAsk)*1.25)):
-            break
-        else:
-            dataframe += [order[0] + "," + order[1] + ""]
+def main(event, context):   
     
-    AWS_BUCKET_NAME = 'orderbookdatastore'
-    s3 = boto3.resource('s3')
-    bucket = s3.Bucket(AWS_BUCKET_NAME)
-    path = datetime.now().strftime("%m-%d-%Y,%H_%M_%S")
-    data = bytes(dataframe)
-    bucket.put_object(
-        ACL='public-read',
-        ContentType='application/json',
-        Key=path,
-        Body=data,
-    )
+    baseEndpoint = 'https://api.binance.com'
+    recent_trades = requests.get(baseEndpoint + '/api/v3/trades', params=dict(symbol="BTCUSDT", limit=1000)).json()
+    prices = []
+    qtys = []
+    isBuyerMaker = []
+    times = []
+    for trade in recent_trades:
+        prices.append(trade['price'])
+        qtys.append(trade['qty'])
+        isBuyerMaker.append(trade['isBuyerMaker'])
+        times.append(trade['time'])
     
-    print(btc_usd_ticker)
-    print('1')
-    return '1'
-
+    
+    DB_NAME = 'recenttradesBinance'
+    dynamodb = boto3.resource('dynamodb')
+    table = dynamodb.Table(DB_NAME)
+    key = datetime.now().strftime("%m-%d-%Y,%H_%M_%S")
+    
+    table.put_item(Item={
+        'timestamp': key,
+        'time': times,
+        'price': prices,
+        'size': qtys,
+        'isBuyerMaker': isBuyerMaker
+    })

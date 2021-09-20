@@ -1,2 +1,3 @@
 Data/binanceData.db
 Data_Acquisition/lambda
+Data_Acquisition/lambda/my-sourcecode-function/lambda_function.py

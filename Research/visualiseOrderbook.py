@@ -5,34 +5,23 @@ import matplotlib.pyplot as plt
 import pandas as pd
 import seaborn as sns
 import numpy as np
-from dynamodb_json import json_util as json
-import boto3
-from boto3.dynamodb.conditions import Key, Attr
+import datetime as datetime
 
-#if using CSV
-#datalocation = os.path.dirname(os.path.dirname( __file__ ))+"/Data/s3/"
-#test = open(datalocation + "orderbookdata.csv", "r")
+db_file = os.path.dirname(os.path.dirname( __file__ ))+"/Data/binanceData.db"
+conn = None
+try:
+    conn = sqlite3.connect(db_file)
+except Error as e:
+    print(e)
+cur = conn.cursor()
 
-dynamodb = boto3.resource('dynamodb')
-table = dynamodb.Table('orderbookdata')
-time = "06-20-2021,2"
-# TODO: switch to table.query to get in batch
-response = table.scan(
-    FilterExpression=Key('timestamp').begins_with(time)
-)
+cur.execute("SELECT * FROM asks Where date between '08-20-2021' and '08-22-2021'")
+asks = cur.fetchall()
+print(asks)
+asks = pd.DataFrame(asks, columns=["bids price", "bids vol", "asks price", "asks vol"]).dropna(axis=1)
+asks.set_index("asks price", drop=True, inplace=True)
+cur.execute("SELECT * FROM updates limit 100")
 
-data = []
-data.append(response)
-
-while response['LastEvaluatedKey'] is not None:
-    print('reading pages')
-    response = table.scan(
-        ExclusiveStartKey=response['LastEvaluatedKey'],
-        FilterExpression=Key('timestamp').begins_with(time)
-    )
-    data.append(response)
-    try: response['LastEvaluatedKey']       # exit loop when all data has been consumed
-    except KeyError: break
 
 times = []
 for response in data:
