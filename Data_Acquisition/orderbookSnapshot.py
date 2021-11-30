@@ -5,7 +5,7 @@ import boto3
 from boto3.dynamodb.conditions import Key, Attr
 
 dynamodb = boto3.resource('dynamodb')
-date = "09-19-2021"
+date = "11-28-2021"
 table = dynamodb.Table('orderbookBinance_' + date)
 
 # TODO: switch to table.query to get in batch
@@ -50,7 +50,7 @@ for response in data:
             data_tuple = (snapshot['date'], snapshot['time'], ask[0], ask[1])
             cur.execute(sqlite_insert_with_param, data_tuple)
 conn.commit()
-
+print(date)
 # Visualise
 #bids['bucket'] = [int(str(x)[:3]) for x in bids['price']]
 #bids.set_index('bucket', drop=True)

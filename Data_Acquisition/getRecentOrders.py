@@ -5,7 +5,7 @@ import boto3
 from boto3.dynamodb.conditions import Key, Attr
 
 dynamodb = boto3.resource('dynamodb')
-date = "09-19-2021"
+date = "11-28-2021"
 table = dynamodb.Table('recenttradesBinance_' + date)
 
 # TODO: switch to table.query to get in batch
@@ -41,10 +41,11 @@ cur = conn.cursor()
 for response in data:
     for snapshot in response['Items']:
         for i in range(0,len(snapshot['prices'])):
-            sqlite_insert_with_param = """INSERT INTO trades (date, time, isBuyerMaker, price, size, tradeTime) VALUES (?, ?, ?, ?, ?, ?);"""
+            sqlite_insert_with_param = """INSERT INTO trades (date, time, isBuyerMaker, price, size) VALUES (?, ?, ?, ?, ?);"""
             data_tuple = (snapshot['date'], snapshot['time'], snapshot['isBuyerMaker'][i], snapshot['prices'][i],
-                          snapshot['sizes'][i], int(snapshot['times'][i]))
+                          snapshot['sizes'][i])
             cur.execute(sqlite_insert_with_param, data_tuple)
 
 conn.commit()
+print(date)
 
