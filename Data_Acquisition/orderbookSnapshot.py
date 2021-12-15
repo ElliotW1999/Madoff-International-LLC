@@ -5,7 +5,7 @@ import boto3
 from boto3.dynamodb.conditions import Key, Attr
 
 dynamodb = boto3.resource('dynamodb')
-date = "11-28-2021"
+date = "12-11-2021"
 table = dynamodb.Table('orderbookBinance_' + date)
 
 # TODO: switch to table.query to get in batch
