@@ -53,7 +53,8 @@ Model performance details
 - https://www.quantconnect.com/tutorials/strategy-library/strategy-library
 - https://www.math.nyu.edu/~avellane/AvellanedaLeeStatArb071108.pdf  
 - https://www.econstor.eu/bitstream/10419/116783/1/833997289.pdf  
-- http://math.uchicago.edu/~may/REU2019/REUPapers/Davidovsky.pdf
+- http://math.uchicago.edu/~may/REU2019/REUPapers/Davidovsky.pdf  
+- https://gist.github.com/ih2502mk/50d8f7feb614c8676383431b056f4291  
 #### Data Acquisition  
 - http://www.lazyfa.com/  
 - https://www.reddit.com/r/algotrading/comments/lelkme/stock_tracker_and_analysis_spreadsheet/  
