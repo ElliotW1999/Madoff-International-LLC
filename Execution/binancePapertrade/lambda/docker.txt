@@ -1,0 +1,6 @@
+cd C:\Users\warne\Documents\Github\Madoff-International-LLC\Execution\binancePapertrade\lambda\my-sourcecode-function
+aws ecr get-login-password --region ap-southeast-2 | docker login --username AWS --password-stdin 587171372780.dkr.ecr.ap-southeast-2.amazonaws.com    
+docker build -t 587171372780.dkr.ecr.ap-southeast-2.amazonaws.com/binancepapertrade:latest .
+docker push 587171372780.dkr.ecr.ap-southeast-2.amazonaws.com/binancepapertrade:latest
+docker tag binancepapertrade:latest 587171372780.dkr.ecr.ap-southeast-2.amazonaws.com/binancepapertrade:latest
+deply new image into lambda binancepapertrade

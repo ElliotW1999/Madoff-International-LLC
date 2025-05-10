@@ -17,9 +17,9 @@ except Error as e:
     print(e)
 cur = conn.cursor()
 
-#date = " = '11-10-2021'" specific dates
+date = " = '12-18-2021'" #specific dates
 #date = " like '12%'" # or 0 for all times
-date = 0
+#date = 0
 if date != 0:
     BBO = """Select * from bidDeltas where date """ + date
 else:

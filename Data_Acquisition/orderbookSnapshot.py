@@ -5,14 +5,17 @@ import boto3
 from boto3.dynamodb.conditions import Key, Attr
 
 dynamodb = boto3.resource('dynamodb')
-date = "12-11-2021"
+month = "08"
+day = "14"
+date = month + "-" + day + "-2023"
+newDate = "2023-" + month + "-" + day
 table = dynamodb.Table('orderbookBinance_' + date)
 
 # TODO: switch to table.query to get in batch
 response = table.scan(
     FilterExpression=Key('date').eq(date)
 )
-print(response)
+
 data = []
 data.append(response)
 
@@ -41,13 +44,13 @@ cur = conn.cursor()
 for response in data:
     for snapshot in response['Items']:
         for bid in snapshot['bids']:
-            sqlite_insert_with_param = """INSERT INTO bids (date, time, price, size) VALUES (?, ?, ?, ?);"""
-            data_tuple = (snapshot['date'], snapshot['time'], bid[0], bid[1])
+            sqlite_insert_with_param = """INSERT INTO bids2023 (date, time, price, size) VALUES (?, ?, ?, ?);"""
+            data_tuple = (newDate, snapshot['time'], bid[0], bid[1])
             cur.execute(sqlite_insert_with_param, data_tuple)
 
         for ask in snapshot['asks']:
-            sqlite_insert_with_param = """INSERT INTO asks (date, time, price, size) VALUES (?, ?, ?, ?);"""
-            data_tuple = (snapshot['date'], snapshot['time'], ask[0], ask[1])
+            sqlite_insert_with_param = """INSERT INTO asks2023 (date, time, price, size) VALUES (?, ?, ?, ?);"""
+            data_tuple = (newDate, snapshot['time'], ask[0], ask[1])
             cur.execute(sqlite_insert_with_param, data_tuple)
 conn.commit()
 print(date)

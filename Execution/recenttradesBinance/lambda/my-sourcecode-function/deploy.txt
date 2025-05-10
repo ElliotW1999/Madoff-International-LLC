@@ -1,0 +1,7 @@
+aws lambda create-function --function-name recentordersBinance --zip-file fileb://my-deployment-package.zip --handler lambda_function.main --runtime python3.8 --role arn:aws:iam::587171372780:role/test-role
+
+copy redshift-cluster-1 from 'dynamodb://orderbookdataBinance' iam_role 'arn:aws:iam::587171372780:role/AWSServiceRoleForRedshift';
+
+aws lambda create-function --function-name readtable --zip-file fileb://my-deployment-package.zip --handler lambda_function.main --runtime python3.8 --role arn:aws:iam::587171372780:role/test-role
+
+aws lambda create-function --function-name binancepapertrade --zip-file fileb://my-deployment-package.zip --handler lambda_function.main --runtime python3.7 --role arn:aws:iam::587171372780:role/test-role

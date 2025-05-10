@@ -17,21 +17,21 @@ try:
 except Error as e:
     print(e)
 cur = conn.cursor()
-date = "'10-28-2021'"
+date = "'2022-01-09'"
 times = [14, 15, 16, 17]
 timesQuery = "(time like '"
 for time in times:
     timesQuery += str(time) + "%' or time like '"
 timesQuery = timesQuery[:-15]
 timesQuery = timesQuery + ")" # or, use this
-timesQuery = "time like '2%'"
+#timesQuery = "time like '2%'"
 
-asks = """Select * from asks where date=""" + date + """ AND """ + timesQuery
+asks = """Select * from asks2022 where date=""" + date + """ AND """ + timesQuery
 cur.execute(asks)
 asks = cur.fetchall()
 asks = pd.DataFrame(asks, columns=['date', 'time', 'price', 'size'])
 print(asks)
-bids = """Select * from bids where date=""" + date + """ AND """ + timesQuery
+bids = """Select * from bids2022 where date=""" + date + """ AND """ + timesQuery
 cur.execute(bids)
 bids = cur.fetchall()
 bids = pd.DataFrame(bids, columns=['date', 'time', 'price', 'size'])
